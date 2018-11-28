@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Simples Pagina HTML</title>
+
+        <link href="manifest.json" rel="manifest" />
+
+        <script>
+            if ('serviceWorker' in navigator ) {
+
+              navigator.serviceWorker.register('service-worker.js', {
+                scope: './'
+              }).then(function(registration) {
+                if (typeof registration.update == 'function') {
+                  registration.update();
+                }
+              }).catch(function(e) {
+                console.error('Error during service worker registration:', e);
+              });
+            }
+
+            localStorage.setItem("nome", "Feijao");
+
+
+        </script>
+	</head>
+	<body>
+	    <script>alert(localStorage.getItem("nome"))</script>
+	</body>
+</html>
